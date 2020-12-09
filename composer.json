@@ -1,0 +1,17 @@
+{
+    "name": "neko/appli",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Nelvanrlay",
+            "email": "colombet.juliette@gmail.com"
+        }
+    ],
+    "require": {},
+    
+	"autoload": {
+		"psr-4": {
+			"App\\": "src/"
+		}
+	}
+}
