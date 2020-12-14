@@ -6,9 +6,8 @@
     use App\Manager\ProductManager;
     use App\Service\MessageService;
 
-    
-
     $manager = new ProductManager();
+    
 
     if(isset($_GET['action'])){
 
