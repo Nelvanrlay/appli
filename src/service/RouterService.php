@@ -14,7 +14,7 @@
         {
             /*----------APPEL DU CONTROLEUR-----*/
 
-            $class = "Store"; //Controleur par défaut
+            $class = ucfirst(DEFAULT_CTRL); //Controleur par défaut
 
             if(isset($params['ctrl'])){// ctrl = admin
                 $uri_class = ucfirst($params['ctrl']); //$uri_class = Admin
@@ -33,7 +33,7 @@
 
         /*---------APPEL DE LA METHODE DANS LE CONTROLEUR ---------*/
 
-            $method = "indexAction"; //La méthode par défaut 
+            $method = DEFAULT_ACTION."Action"; //La méthode par défaut 
 
             if(isset($params['action'])){//action = list
                 $uri_method = $params['action']."Action"; //$uri_method = ListAction
@@ -56,4 +56,13 @@
             //StoreController::listAction()
             return $controller->$method($id);//appel de la méthode du controleur
                 }
+
+        public static function redirect($ctrl = null, $action = null, $id = null){
+
+            $ctrl = $ctrl ?? DEFAULT_CTRL; //si ctrl est null, "store" est renvoyé
+            $action = $action ?? DEFAULT_ACTION;
+
+            header("Location:index.php?ctrl=$ctrl&action=$action&id=$id");
+            return;
+        }
     }
